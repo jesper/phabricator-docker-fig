@@ -1,0 +1,15 @@
+mysql:
+  build: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: _CH4Ng3_M3_
+  ports:
+    - 3306
+  volumes:
+    - mysql-data:/var/lib/mysql
+
+phabricator:
+  build: phabricator
+  links:
+    - mysql
+  ports:
+    - 80:80
